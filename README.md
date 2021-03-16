@@ -5,7 +5,7 @@ Since the Android team released Jetpack Compose first beta version, I’ve been 
 
 So, I have decided to publish an article on Medium about how to implement a Curtain Effect with Jetpack Compose.
 
-![CurtainEffect](/results/curtain.gif)
+![CurtainEffect](./results/curtain.gif)
 
 medium
 
