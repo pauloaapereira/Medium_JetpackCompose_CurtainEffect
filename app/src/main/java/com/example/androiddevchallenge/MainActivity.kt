@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2021 Paulo Pereira
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,19 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Card
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -39,23 +47,77 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
-    }
-}
 
-@Preview("Light Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun LightPreview() {
-    MyTheme {
-        MyApp()
-    }
-}
-
-@Preview("Dark Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun DarkPreview() {
-    MyTheme(darkTheme = true) {
-        MyApp()
+    Surface(color = Color.White, modifier = Modifier.fillMaxSize()) {
+        Curtain(
+            foldingDuration = 400,
+            mainCell = {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    backgroundColor = Color.DarkGray,
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    ) {
+                        Text(text = "This is the main cell!", color = Color.White)
+                    }
+                }
+            },
+            foldCells = listOf(
+                {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(128.dp),
+                        backgroundColor = Color.DarkGray,
+                        shape = RectangleShape
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                        ) {
+                            Text(text = "This is the first folded cell!", color = Color.White)
+                        }
+                    }
+                },
+                {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(128.dp),
+                        backgroundColor = Color.DarkGray,
+                        shape = RectangleShape
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                        ) {
+                            Text(text = "This is the second folded cell!", color = Color.White)
+                        }
+                    }
+                },
+                {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(128.dp),
+                        backgroundColor = Color.DarkGray,
+                        shape = RectangleShape
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                        ) {
+                            Text(text = "This is the third folded cell!", color = Color.White)
+                        }
+                    }
+                }
+            )
+        )
     }
 }
