@@ -57,9 +57,7 @@ fun MyApp() {
                     backgroundColor = Color.DarkGray,
                 ) {
                     Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
                     ) {
                         Text(text = "This is the main cell!", color = Color.White)
                     }
@@ -68,16 +66,12 @@ fun MyApp() {
             foldCells = listOf(
                 {
                     Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(128.dp),
+                        modifier = Modifier.fillMaxWidth().height(128.dp),
                         backgroundColor = Color.DarkGray,
                         shape = RectangleShape
                     ) {
                         Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
+                            modifier = Modifier.fillMaxWidth().padding(16.dp)
                         ) {
                             Text(text = "This is the first folded cell!", color = Color.White)
                         }
@@ -85,16 +79,12 @@ fun MyApp() {
                 },
                 {
                     Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(128.dp),
+                        modifier = Modifier.fillMaxWidth().height(128.dp),
                         backgroundColor = Color.DarkGray,
                         shape = RectangleShape
                     ) {
                         Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
+                            modifier = Modifier.fillMaxWidth().padding(16.dp)
                         ) {
                             Text(text = "This is the second folded cell!", color = Color.White)
                         }
@@ -102,16 +92,12 @@ fun MyApp() {
                 },
                 {
                     Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(128.dp),
+                        modifier = Modifier.fillMaxWidth().height(128.dp),
                         backgroundColor = Color.DarkGray,
                         shape = RectangleShape
                     ) {
                         Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp)
+                            modifier = Modifier.fillMaxWidth().padding(16.dp)
                         ) {
                             Text(text = "This is the third folded cell!", color = Color.White)
                         }
