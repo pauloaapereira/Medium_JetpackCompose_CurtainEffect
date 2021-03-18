@@ -38,13 +38,14 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun Curtain(
+    isOpenedFromOutside: Boolean? = null,
     foldingDuration: Int = 250,
     mainCell: @Composable () -> Unit,
     foldCells: List<@Composable () -> Unit>
 ) {
-    val foldScope = rememberCoroutineScope()
     var isOpened by remember { mutableStateOf(false) }
     var isTransitionRunning by remember { mutableStateOf(false) }
+    val foldScope = rememberCoroutineScope()
 
     fun toggleCurtain() {
         if (!isTransitionRunning) {
@@ -58,10 +59,12 @@ fun Curtain(
         }
     }
 
+    if (isOpenedFromOutside != null) {
+        isOpened = isOpenedFromOutside
+    }
+
     Box(
-        modifier = Modifier
-            .wrapContentSize()
-            .clickable { toggleCurtain() }
+        modifier = Modifier.curtainModifier(isOpenedFromOutside != null, onClick = { toggleCurtain() })
     ) {
         MainCell(
             isOpened = isOpened,
@@ -75,6 +78,11 @@ fun Curtain(
             foldCells = foldCells
         )
     }
+}
+
+private fun Modifier.curtainModifier(externalControl: Boolean = false, onClick: () -> Unit): Modifier {
+    val modifier = wrapContentSize()
+    return if (!externalControl) modifier.clickable { onClick() } else modifier
 }
 
 @Composable
