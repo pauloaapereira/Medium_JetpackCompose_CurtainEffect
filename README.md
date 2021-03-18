@@ -7,7 +7,7 @@ So, I have decided to publish an article on Medium about how to implement a Curt
 
 ![CurtainEffect](./results/curtain.gif)
 
-medium
+https://pauloaapereira.medium.com/jetpack-compose-curtain-effect-43323d537cc1
 
 ## License
 ```
